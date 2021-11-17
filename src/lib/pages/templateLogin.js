@@ -1,5 +1,6 @@
 export const drawLogin = () => {
-  const templatePage = `
+  const draw= document.createElement("div");
+  const templatePageLogin = `
     <section>
       <section class = "containerWelcome">
         <h1>¡¡BIENVENIDOS A ESTUDIANDO!!</h1>
@@ -18,8 +19,9 @@ export const drawLogin = () => {
         <img src="img/logo-google.png" alt="LogoGoogle" id="logoGoogle">
         <p>¿No tienes cuenta?</p>
         <a href="lib/pages/templateSignUp.js">Registrate aqui</a>
-      </section>
+      // </section>
     </section>
-  `;
-  return templatePage;
+  `
+  draw.innerHTML=templatePageLogin;
+  return templatePageLogin;
 };
