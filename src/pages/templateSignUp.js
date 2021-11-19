@@ -7,9 +7,9 @@ export const drawSignUp= () =>{
       <input type="text" placeholder="Ingresa tu correo electrónico">
       <input type="text" placeholder="Ingresa tu clave">
       <button id="buttonSignUp">Registrate</button>
-      <a href="lib/pages/templatesWall.js">Inicia sesíon aquí</a>
+      <a href="#/wall">Inicia sesíon aquí</a>
     </section>
   `
-  caca.innerHTML=templatePageSignUp;
+  draw.innerHTML=templatePageSignUp;
   return draw;
 };

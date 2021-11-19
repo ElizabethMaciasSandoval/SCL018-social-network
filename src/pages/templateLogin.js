@@ -14,14 +14,14 @@ export const drawLogin = () => {
         <img src="" alt="" id="">
         <input type="text" id="loginMail">
         <input type="text" id="loginPassword">
-        <button id="loginButton">Ingresa</button>
+        <button id="loginButton" a href="#/wall">Ingresa</button>
         <p>O</p>
         <img src="img/logo-google.png" alt="LogoGoogle" id="logoGoogle">
         <p>¿No tienes cuenta?</p>
-        <a href="lib/pages/templateSignUp.js">Registrate aqui</a>
+        <a href="#/signup">Registrate aqui</a>
       // </section>
     </section>
   `
   draw.innerHTML=templatePageLogin;
-  return templatePageLogin;
+  return draw;
 };
