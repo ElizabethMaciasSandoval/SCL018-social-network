@@ -20,7 +20,11 @@ export const drawSignUp = () => {
     const password = draw.querySelector('#signPassword').value;
     console.log(email);
     console.log(password);
-    signup(email, password);
+    if (password.length < 6) {
+      alert('Tu contraseña debe ser mayor a 6 caracteres');
+    } else {
+      signup(email, password);
+    }
   });
   return draw;
 };
