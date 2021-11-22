@@ -1,5 +1,5 @@
 export const drawLogin = () => {
-  const draw= document.createElement("div");
+  const draw = document.createElement('div');
   const templatePageLogin = `
     <section>
       <section class = "containerWelcome">
@@ -12,16 +12,16 @@ export const drawLogin = () => {
       </section>
       <section class = "containerLogin">
         <img src="" alt="" id="">
-        <input type="text" id="loginMail">
-        <input type="text" id="loginPassword">
-        <button id="loginButton" a href="#/wall">Ingresa</button>
+        <input type="email" id="loginMail" placeholder="Ingresa tu correo electrónico">
+        <input type="password" id="loginPassword" placeholder="Ingresa tu clave">
+        <button id="loginButton">Ingresa</button>
         <p>O</p>
         <img src="img/logo-google.png" alt="LogoGoogle" id="logoGoogle">
         <p>¿No tienes cuenta?</p>
         <a href="#/signup">Registrate aqui</a>
-      // </section>
+      </section>
     </section>
-  `
-  draw.innerHTML=templatePageLogin;
+  `;
+  draw.innerHTML = templatePageLogin;
   return draw;
 };

@@ -4,11 +4,10 @@ import { changeRoute } from './lib/routes.js';
 
 myFunction();
 
-const init = () =>{
-    window.location.hash="#/";
-    window.addEventListener("hashchange", () =>{
-        changeRoute(window.location.hash);
-    });
+const init = () => {
+  window.location.hash = '#/';
+  window.addEventListener('hashchange', () => {
+    changeRoute(window.location.hash);
+  });
 };
-window.addEventListener("load", init);
-
+window.addEventListener('load', init);

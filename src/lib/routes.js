@@ -4,19 +4,18 @@ import { drawWall } from '../pages/templateWall.js';
 
 export const changeRoute = (hash) =>{
   const containerRoot = document.getElementById('root');
-  containerRoot.innerHTML="";
-  switch (hash){
-    case "#/":
+  containerRoot.innerHTML = '';
+  switch (hash) {
+    case '#/':
       containerRoot.appendChild(drawLogin());
       break;
-    case "#/signup":
+    case '#/signup':
       containerRoot.appendChild(drawSignUp());
       break;
-    case "#/wall":
+    case '#/wall':
       containerRoot.appendChild(drawWall());
       break;
     default:
       alert("te perdiste Wey, devuélvete");
-  };
+  }
 };
-
