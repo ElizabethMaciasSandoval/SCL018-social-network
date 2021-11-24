@@ -2,11 +2,12 @@ import { drawLogin } from '../pages/templateLogin.js';
 import { drawSignUp } from '../pages/templateSignUp.js';
 import { drawWall } from '../pages/templateWall.js';
 
-export const changeRoute = (hash) =>{
+export const changeRoute = (hash) => {
   const containerRoot = document.getElementById('root');
   containerRoot.innerHTML = '';
   switch (hash) {
     case '#/':
+    case '#/login':
       containerRoot.appendChild(drawLogin());
       break;
     case '#/signup':
@@ -16,6 +17,7 @@ export const changeRoute = (hash) =>{
       containerRoot.appendChild(drawWall());
       break;
     default:
-      alert("te perdiste Wey, devuélvete");
+      alert('te perdiste Wey, devuélvete');
+      break;
   }
 };
