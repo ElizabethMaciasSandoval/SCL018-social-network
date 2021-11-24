@@ -3,3 +3,48 @@
   width: 3rem;
 }
 
+*{
+  margin: 0;
+  padding: 0;
+} 
+
+@font-face {
+  font-family: Roboto-Light;
+  src: url(fonts/Roboto-Light.ttf);
+}
+
+.firstPage {
+/*   display: flex; 
+  flex-direction: column;*/ 
+  background-image: url(img/Img1.1.png);
+/*   margin-right: 5rem; 
+  background-size: cover;*/
+/*   background-size: 100% center;*/
+  background-repeat: no-repeat;
+  height: 100vh;
+  margin-top: 30%;
+}
+
+.containerWelcome {
+  font-family: Roboto-Light;
+  font-size: 1.5rem;
+  -webkit-text-stroke: 0.125rem black; 
+   display: flex; 
+/*  flex-direction: column;*/
+  justify-content: space-around;
+
+}
+
+
+
+
+
+
+
+.containerLogin{
+  font-family: Roboto-Light;
+  font-size: 1.5rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
