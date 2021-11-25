@@ -5,7 +5,7 @@ import { changeRoute } from './lib/routes.js';
 myFunction();
 
 const init = () => {
-  window.location.hash = '#/';
+  window.location.hash = '#/login';
   window.addEventListener('hashchange', () => {
     changeRoute(window.location.hash);
   });
