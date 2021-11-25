@@ -25,5 +25,14 @@ export const drawLogin = () => {
     </section>
   `;
   draw.innerHTML = templatePageLogin;
+  const buttonLogin= draw.querySelector('#loginButton');
+  buttonLogin.addEventListener('click',() =>{
+    const email= draw.querySelector('#loginMail').value;
+    const password= draw.querySelector('#loginPassword').value;
+    console.log(email);
+    console.log(password);
+    window.location.hash='#/wall';
+  });
+ 
   return draw;
 };
