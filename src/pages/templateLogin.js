@@ -1,3 +1,5 @@
+import { login, googleLogin } from '../lib/firebase.js';
+
 export const drawLogin = () => {
   const draw = document.createElement('div');
   const templatePageLogin = `
@@ -25,14 +27,20 @@ export const drawLogin = () => {
     </section>
   `;
   draw.innerHTML = templatePageLogin;
-  const buttonLogin= draw.querySelector('#loginButton');
-  buttonLogin.addEventListener('click',() =>{
-    const email= draw.querySelector('#loginMail').value;
-    const password= draw.querySelector('#loginPassword').value;
+
+  const buttonLogin = draw.querySelector('#loginButton');
+  buttonLogin.addEventListener('click', () => {
+    const email = draw.querySelector('#loginMail').value;
+    const password = draw.querySelector('#loginPassword').value;
     console.log(email);
     console.log(password);
-    window.location.hash='#/wall';
+    login(email, password);
   });
- 
+
+  const googleButton = draw.querySelector('#logoGoogle');
+  googleButton.addEventListener('click', () => {
+  console.log('Holiwi');
+    googleLogin();
+  });
   return draw;
 };
