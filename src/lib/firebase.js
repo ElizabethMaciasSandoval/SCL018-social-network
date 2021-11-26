@@ -7,7 +7,8 @@ import {
   signInWithEmailAndPassword,
   signInWithPopup,
   GoogleAuthProvider,
-  signOut
+  signOut,
+  updateProfile
 } from 'https://www.gstatic.com/firebasejs/9.2.0/firebase-auth.js';
 // TODO: Add SDKs for Firebase products that you want to use
 // https://firebase.google.com/docs/web/setup#available-libraries
@@ -32,7 +33,11 @@ export const signup = (email, password) => {
   createUserWithEmailAndPassword(auth, email, password)
     .then((userCredential) => {
       // Signed in
+      window.location.hash = '#/login';
       const user = userCredential.user;
+/*       updateProfile(auth.currentUser, {
+        displayName: name, */
+      });
       console.log(user);
       // ...
     })
