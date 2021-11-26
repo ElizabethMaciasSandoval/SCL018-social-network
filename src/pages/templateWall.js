@@ -1,3 +1,5 @@
+import { signOutUser } from '../lib/firebase.js';
+
 export const drawWall = () => {
   const draw = document.createElement('div');
   const templatePageWall = `
@@ -16,8 +18,15 @@ export const drawWall = () => {
     </section>
     <footer>
       <img src="" alt="">
+      <i class="fas fa-sign-out-alt" id="signOutIcon"></i>
     </footer>
   `;
   draw.innerHTML = templatePageWall;
+
+  const outIcon = draw.querySelector('#signOutIcon');
+  outIcon.addEventListener('click', () => {
+    signOutUser();
+  })
+
   return draw;
 };
