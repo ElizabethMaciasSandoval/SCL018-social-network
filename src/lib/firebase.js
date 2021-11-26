@@ -6,7 +6,8 @@ import {
   createUserWithEmailAndPassword,
   signInWithEmailAndPassword,
   signInWithPopup,
-  GoogleAuthProvider
+  GoogleAuthProvider,
+  signOut
 } from 'https://www.gstatic.com/firebasejs/9.2.0/firebase-auth.js';
 // TODO: Add SDKs for Firebase products that you want to use
 // https://firebase.google.com/docs/web/setup#available-libraries
@@ -53,11 +54,13 @@ export const login = (email, password) => {
       .then((userCredential) => {
       // Signed in
         const user = userCredential.user;
+        window.location.hash = '#/wall';
       // ...
       })
       .catch((error) => {
         const errorCode = error.code;
         const errorMessage = error.message;
+        console.log('Pajarón');
       });
   }
 };
@@ -71,6 +74,7 @@ export const googleLogin = () => {
       const token = credential.accessToken;
       // The signed-in user info.
       const user = result.user;
+      window.location.hash = '#/wall';
     // ...
     }).catch((error) => {
     // Handle Errors here.
@@ -81,5 +85,17 @@ export const googleLogin = () => {
       // The AuthCredential type that was used.
       const credential = GoogleAuthProvider.credentialFromError(error);
     // ...
+    });
+};
+
+// Singout (Cierre sesión)
+export const signOutUser = () => {
+  signOut(auth)
+    .then(() => {
+    // Sign-out successful.
+      window.location.hash = '#/login';
+    }).catch((error) => {
+    // An error happened.
+    console.log('Se taimó');
     });
 };
