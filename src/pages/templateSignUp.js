@@ -4,7 +4,7 @@ export const drawSignUp = () => {
   const draw = document.createElement('div');
   const templatePageSignUp = `
     <section class="Container-SignUp">
-      <h1 class="Title-SignUp">Regístrate</h1>
+    <img src="img/Registrate.png" alt="Logo registrate" class="logoSignIn">
       <input type="text" id="signName" class="Inputs-Registrer" placeholder="Ingresa tu nombre">
       <input type="email" id="signMail" class="Inputs-Registrer" placeholder="Ingresa tu correo electrónico">
       <input type="password" id="signPassword" class="Inputs-Registrer" placeholder="Ingresa tu clave">
