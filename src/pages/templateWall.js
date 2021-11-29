@@ -19,6 +19,7 @@ export const drawWall = () => {
     </section>
     </section>
     <footer>
+
     <i class="fas fa-sign-out-alt" id="signOutIcon"></i>
     </footer>
   `;
@@ -27,6 +28,18 @@ export const drawWall = () => {
   outIcon.addEventListener('click', () => {
     signOutUser();
   });
+
+      <img src="" alt="">
+      <i class="fas fa-sign-out-alt" id="signOutIcon"></i>
+    </footer>
+  `;
+  draw.innerHTML = templatePageWall;
+
+  const outIcon = draw.querySelector('#signOutIcon');
+  outIcon.addEventListener('click', () => {
+    signOutUser();
+  })
+
 
   return draw;
 };
