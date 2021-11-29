@@ -6,7 +6,7 @@ export const drawLogin = () => {
     <section>
       <section class = "containerWelcome">
       <section class = "firstPage">
-        <img src="img/logo-estudiando2.png" alt="logo" id="imgEtudiando" class="img-estudiando">
+        <img src="img/Logo-oficial_00.png" alt="logo" id="imgEtudiando" class="img-estudiando">
         <p class="Login-Message">Es una App Web creada para que estudiantes compartan material educativo, en la cual encontrarán
         información, recursos, links y temas relacionados con la PTU, orientación vocacional y emocional,
         sobre el espectro de carreras profesional, etc.
@@ -16,7 +16,7 @@ export const drawLogin = () => {
       </section>
       </section>
       <section class = "containerLogin">
-        <h1 class="Title-Login">Inicia Sesión</h1>
+      <img src="img/Inicia-sesion.png" alt="Logo Inicia Sesion" class="logoIniciaSesion">
         <input type="email" id="loginMail" class="Inputs-Login" placeholder="Ingresa tu correo electrónico">
         <input type="password" id="loginPassword" class="Inputs-Login" placeholder="Ingresa tu clave">
         <button id="loginButton" class="Button-Login">Ingresa</button>

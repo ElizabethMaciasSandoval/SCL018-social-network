@@ -17,6 +17,7 @@ export const changeRoute = (hash) => {
       containerRoot.appendChild(drawWall());
       break;
     default:
+      // eslint-disable-next-line no-alert
       alert('te perdiste Wey, devuélvete');
       break;
   }
