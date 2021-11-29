@@ -37,7 +37,10 @@
   color: #0077b6;
   text-align: center;
 }
-
+.logoSignIn{
+  width: auto;
+  height: 4rem;
+}
 /*estilos inputs register y login*/
 .Inputs-Registrer, .Inputs-Login{
   border-radius: 0.375rem;
@@ -79,7 +82,7 @@ a{
 
 .img-estudiando{/*revisar esta cosa*/
   width: auto;
-  height: 12rem;
+  height: 4rem;
   padding: 0rem;
   margin: 0rem;
 }
@@ -99,10 +102,45 @@ a{
   width: auto;
   height: 15rem;
 }
-
-.Title-Login {
+.logoIniciaSesion{
+width: auto;
+height: 4em;
+}
+/* .Title-Login {
   font-family: CabinSketch-Regular;
   color: #0077b6;
   font-size: 3.3rem;
   margin-top: 2rem;
-}
+} */
+ /* Página del Muro */
+ .wall-container{
+   display: flex;
+   flex-direction: column;
+   justify-content: space-between;
+   align-items: center;
+ }
+ .post-container{
+   display: flex;
+   flex-direction: column;
+   justify-content: space-around;
+   align-items: center;
+ }
+ .title-post{
+   margin-top: 2rem;
+ }
+ .content-post{
+  margin-top: 2rem;
+  resize: none;
+ }
+ .button-post{
+  margin-top: 2rem;
+ }
+ footer{
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  align-items: center;
+ }
+ #signOutIcon{
+ size: 3rem;
+ }
