@@ -113,34 +113,40 @@ height: 4em;
   margin-top: 2rem;
 } */
  /* Página del Muro */
- .wall-container{
-   display: flex;
-   flex-direction: column;
-   justify-content: space-between;
-   align-items: center;
- }
- .post-container{
-   display: flex;
-   flex-direction: column;
-   justify-content: space-around;
-   align-items: center;
- }
- .title-post{
-   margin-top: 2rem;
- }
- .content-post{
+.wall-container{
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.post-container{
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  align-items: center;
+}
+
+.title-post{
+  margin-top: 2rem;
+}
+
+.content-post{
   margin-top: 2rem;
   resize: none;
- }
- .button-post{
+}
+
+.button-post{
   margin-top: 2rem;
- }
- footer{
+}
+
+footer{
   display: flex;
   flex-direction: column;
   justify-content: flex-end;
   align-items: center;
- }
- #signOutIcon{
- size: 3rem;
- }
+}
+
+#signOutIcon{
+  size: 3rem;
+}

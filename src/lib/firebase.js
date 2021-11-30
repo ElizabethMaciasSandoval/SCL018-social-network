@@ -9,9 +9,6 @@ import {
   signInWithPopup,
   GoogleAuthProvider,
   signOut,
-
-  updateProfile
-
 } from 'https://www.gstatic.com/firebasejs/9.2.0/firebase-auth.js';
 // TODO: Add SDKs for Firebase products that you want to use
 // https://firebase.google.com/docs/web/setup#available-libraries
@@ -36,16 +33,8 @@ export const signup = (email, password) => {
   createUserWithEmailAndPassword(auth, email, password)
     .then((userCredential) => {
       // Signed in
-      window.location.hash = '#/login';
       const user = userCredential.user;
-
       window.location.hash = '#/login';
-
-/*       updateProfile(auth.currentUser, {
-        displayName: name, */
-      });
-
-      console.log(user);
       // ...
     })
     .catch((error) => {
@@ -67,11 +56,7 @@ export const login = (email, password) => {
         // Signed in
         const user = userCredential.user;
         window.location.hash = '#/wall';
-
         // ...
-
-      // ...
-
       })
       .catch((error) => {
         const errorCode = error.code;
@@ -91,16 +76,13 @@ export const googleLogin = () => {
       // The signed-in user info.
       const user = result.user;
       window.location.hash = '#/wall';
-
       // ...
     })
     .catch((error) => {
       // Handle Errors here.
-
     // ...
     }).catch((error) => {
     // Handle Errors here.
-
       const errorCode = error.code;
       const errorMessage = error.message;
       // The email of the user's account used.
@@ -111,26 +93,20 @@ export const googleLogin = () => {
     });
 };
 
-
-
-
 // Singout (Cierre sesión)
 export const signOutUser = () => {
   signOut(auth)
     .then(() => {
-
       // Sign-out successful.
       window.location.hash = '#/login';
     })
     .catch((error) => {
       // An error happened.
       console.log('Se taimó');
-
-    // Sign-out successful.
+      // Sign-out successful.
       window.location.hash = '#/login';
     }).catch((error) => {
-    // An error happened.
-    console.log('Se taimó');
-
+      // An error happened.
+      console.log('Se taimó');
     });
 };
