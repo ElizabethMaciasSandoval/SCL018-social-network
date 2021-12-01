@@ -9,7 +9,10 @@ import {
   signInWithPopup,
   GoogleAuthProvider,
   signOut,
+  onAuthStateChanged,
+  updateProfile,
 } from 'https://www.gstatic.com/firebasejs/9.2.0/firebase-auth.js';
+import { getFirestore, collection, addDoc } from 'https://www.gstatic.com/firebasejs/9.2.0/firebase-firestore.js';
 // TODO: Add SDKs for Firebase products that you want to use
 // https://firebase.google.com/docs/web/setup#available-libraries
 
@@ -29,13 +32,33 @@ const firebaseConfig = {
 const app = initializeApp(firebaseConfig);
 const auth = getAuth(app);
 const provider = new GoogleAuthProvider();
-export const signup = (email, password) => {
+const db = getFirestore(app);
+
+// funcion que crea la colecion de los usuarios
+export const userData = async (idUser, nameUser) => {
+  try {
+    const docRef = await addDoc(collection(db, 'user-data'), {
+      id: idUser,
+      name: nameUser,
+    });
+    console.log("Document written with ID: ", docRef.id);
+  } catch (e) {
+    console.error("Error adding document: ", e);
+  }
+};
+
+// funcion que registra usuarios
+export const signup = (email, password, name) => {
   createUserWithEmailAndPassword(auth, email, password)
     .then((userCredential) => {
       // Signed in
       const user = userCredential.user;
       window.location.hash = '#/login';
+      updateProfile(auth.currentUser, {
+        displayName: name,
+      });
       // ...
+      userData(auth.currentUser.uid, name);
     })
     .catch((error) => {
       const errorCode = error.code;
@@ -46,7 +69,7 @@ export const signup = (email, password) => {
     });
 };
 
-// Login
+// funcion que loguea usuarios con una cuenta registrada
 export const login = (email, password) => {
   if (email === '' || password === '') {
     alert('Email o contraseña no ingresados');
@@ -66,7 +89,7 @@ export const login = (email, password) => {
   }
 };
 
-// Login con Google
+// funcion que loguea usuarios con cuenta de google
 export const googleLogin = () => {
   signInWithPopup(auth, provider)
     .then((result) => {
@@ -109,4 +132,22 @@ export const signOutUser = () => {
       // An error happened.
       console.log('Se taimó');
     });
+};
+
+// funcion observador
+export const onAuth = () => {
+  onAuthStateChanged(auth, (user) => {
+    if (user) {
+      // User is signed in, see docs for a list of available properties
+      // https://firebase.google.com/docs/reference/js/firebase.User
+      window.location.hash = '#/wall';
+      const uid = user.uid;
+      console.log(user);
+      // ...
+    } else if (!user) {
+      // User is signed out
+      // ...
+      signOutUser();
+    }
+  });
 };

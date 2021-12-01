@@ -17,14 +17,18 @@ export const drawSignUp = () => {
 
   const buttonSignUp = draw.querySelector('#buttonSignUp');
   buttonSignUp.addEventListener('click', () => {
+    const name = draw.querySelector('#signName').value;
     const email = draw.querySelector('#signMail').value;
     const password = draw.querySelector('#signPassword').value;
+    console.log(name);
     console.log(email);
     console.log(password);
-    if (password.length < 6) {
+    if (name === '' || email === '' || password === '') {
+      alert('Por favor completa todos los campos');
+    } else if (password.length < 6) {
       alert('Tu contraseña debe ser mayor a 6 caracteres');
     } else {
-      signup(email, password);
+      signup(email, password, name);
     }
   });
   return draw;
