@@ -41,9 +41,9 @@ export const userData = async (idUser, nameUser) => {
       id: idUser,
       name: nameUser,
     });
-    console.log("Document written with ID: ", docRef.id);
+    console.log('Document written with ID: ', docRef.id);
   } catch (e) {
-    console.error("Error adding document: ", e);
+    console.error('Error adding document: ', e);
   }
 };
 
@@ -127,10 +127,6 @@ export const signOutUser = () => {
       // An error happened.
       console.log('Se taimó');
       // Sign-out successful.
-      window.location.hash = '#/login';
-    }).catch((error) => {
-      // An error happened.
-      console.log('Se taimó');
     });
 };
 
@@ -138,16 +134,48 @@ export const signOutUser = () => {
 export const onAuth = () => {
   onAuthStateChanged(auth, (user) => {
     if (user) {
-      // User is signed in, see docs for a list of available properties
-      // https://firebase.google.com/docs/reference/js/firebase.User
-      window.location.hash = '#/wall';
       const uid = user.uid;
-      console.log(user);
-      // ...
-    } else if (!user) {
-      // User is signed out
-      // ...
-      signOutUser();
+      console.log(uid);
+    } else if (window.location.hash !== '#/register') {
+      signOut();
     }
   });
 };
+
+// export const onAuth = () => {
+//   onAuthStateChanged(auth, (user) => {
+//     if (user) {
+//       // User is signed in, see docs for a list of available properties
+//       // https://firebase.google.com/docs/reference/js/firebase.User
+//       window.location.hash = '#/wall';
+//       const uid = user.uid;
+//       console.log(user);
+//       // ...
+//     } else if (!user) {
+//       // User is signed out
+//       // ...
+//       if (window.location.hash !== '#/register') {
+//         signOut();
+//       }
+//     }
+//   });
+// };
+
+//funcion para crear coleccion de post
+export const addDataPost = async (textPost) => {
+  try {
+    const docRef = await addDoc(collection(db, 'post'), {
+      userName: auth.currentUser.displayName,
+      userId: auth.currentUser.uid,
+      userPost: textPost,
+      likes: [],
+      likesCounter: 0,
+      datePost: Timestamp.fromDate(new Date()),
+    });
+    console.log('Document written with ID: ', docRef.id);
+  } catch (e) {
+    console.error('Error adding document: ', e);
+  }
+};
+
+//funcion para publicar el post en pantalla
