@@ -11,8 +11,17 @@ import {
   signOut,
   onAuthStateChanged,
   updateProfile,
+  // onSnapshot,
+  // orderBy,
 } from 'https://www.gstatic.com/firebasejs/9.2.0/firebase-auth.js';
-import { getFirestore, collection, addDoc } from 'https://www.gstatic.com/firebasejs/9.2.0/firebase-firestore.js';
+import {
+  getFirestore,
+  collection,
+  addDoc,
+  Timestamp,
+  query,
+
+} from 'https://www.gstatic.com/firebasejs/9.2.0/firebase-firestore.js';
 // TODO: Add SDKs for Firebase products that you want to use
 // https://firebase.google.com/docs/web/setup#available-libraries
 
@@ -30,7 +39,7 @@ const firebaseConfig = {
 
 // Initialize Firebase
 const app = initializeApp(firebaseConfig);
-const auth = getAuth(app);
+export const auth = getAuth(app);
 const provider = new GoogleAuthProvider();
 const db = getFirestore(app);
 
@@ -103,7 +112,6 @@ export const googleLogin = () => {
     })
     .catch((error) => {
       // Handle Errors here.
-    // ...
     }).catch((error) => {
     // Handle Errors here.
       const errorCode = error.code;
@@ -134,34 +142,20 @@ export const signOutUser = () => {
 export const onAuth = () => {
   onAuthStateChanged(auth, (user) => {
     if (user) {
+      // User is signed in, see docs for a list of available properties
+      // https://firebase.google.com/docs/reference/js/firebase.User
       const uid = user.uid;
-      console.log(uid);
-    } else if (window.location.hash !== '#/register') {
-      signOut();
+      console.log(user);
+      // ...
+    } else if (window.location.hash === '#/wall') {
+      // User is signed out
+      // ...
+      signOutUser();
     }
   });
 };
 
-// export const onAuth = () => {
-//   onAuthStateChanged(auth, (user) => {
-//     if (user) {
-//       // User is signed in, see docs for a list of available properties
-//       // https://firebase.google.com/docs/reference/js/firebase.User
-//       window.location.hash = '#/wall';
-//       const uid = user.uid;
-//       console.log(user);
-//       // ...
-//     } else if (!user) {
-//       // User is signed out
-//       // ...
-//       if (window.location.hash !== '#/register') {
-//         signOut();
-//       }
-//     }
-//   });
-// };
-
-//funcion para crear coleccion de post
+// funcion para crear coleccion de post
 export const addDataPost = async (textPost) => {
   try {
     const docRef = await addDoc(collection(db, 'post'), {
@@ -178,4 +172,14 @@ export const addDataPost = async (textPost) => {
   }
 };
 
-//funcion para publicar el post en pantalla
+// funcion para publicar el post en pantalla
+// export const printPost = (nameCollection, callback) => {
+//   const q = query(collection(db, nameCollection), orderBy('datePost', 'desc'));
+//   onSnapshot(q, (querySnapshot) => {
+//     const posts = [];
+//     querySnapshot.forEach((_doc) => {
+//       posts.push({ ..._doc.data(), id: _doc.id });
+//     });
+//     callback(posts);
+//   });
+// };
