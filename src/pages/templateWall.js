@@ -1,10 +1,8 @@
 import {
   signOutUser,
   addDataPost,
-  // auth,
-  // printPost,
 } from '../lib/firebase.js';
-// import { newPost } from './post/templatePost.js';
+import { postView } from './post.js';
 
 export const drawWall = () => {
   const draw = document.createElement('div');
@@ -17,11 +15,7 @@ export const drawWall = () => {
         <img src="img/log-out.png" alt="cierre de sesión" class="log-out" id="logOut">
         <img src="img/writing.png" alt="crear post" class="new-post" id="newPost">
       </nav>
-    <section class = "post-container">
-      <img src="" alt="">
-      <h2></h2>
-    </section>
-    <section>
+    <section class= "post-container" id="postContainer">
     </section>
   `;
   draw.innerHTML = templatePageWall;
@@ -50,11 +44,12 @@ export const drawWall = () => {
       draw.innerHTML = templatePageWall;
     });
   });
-
+  postView();
   const buttonOutIcon = draw.querySelector('#logOut');
   buttonOutIcon.addEventListener('click', () => {
     console.log('okey');
     signOutUser();
   });
+
   return draw;
 };

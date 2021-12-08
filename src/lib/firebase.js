@@ -11,8 +11,6 @@ import {
   signOut,
   onAuthStateChanged,
   updateProfile,
-  // onSnapshot,
-  // orderBy,
 } from 'https://www.gstatic.com/firebasejs/9.2.0/firebase-auth.js';
 import {
   getFirestore,
@@ -20,7 +18,8 @@ import {
   addDoc,
   Timestamp,
   query,
-
+  onSnapshot,
+  orderBy,
 } from 'https://www.gstatic.com/firebasejs/9.2.0/firebase-firestore.js';
 // TODO: Add SDKs for Firebase products that you want to use
 // https://firebase.google.com/docs/web/setup#available-libraries
@@ -173,13 +172,13 @@ export const addDataPost = async (textPost) => {
 };
 
 // funcion para publicar el post en pantalla
-// export const printPost = (nameCollection, callback) => {
-//   const q = query(collection(db, nameCollection), orderBy('datePost', 'desc'));
-//   onSnapshot(q, (querySnapshot) => {
-//     const posts = [];
-//     querySnapshot.forEach((_doc) => {
-//       posts.push({ ..._doc.data(), id: _doc.id });
-//     });
-//     callback(posts);
-//   });
-// };
+export const printPost = (nameCollection, callback) => {
+  const q = query(collection(db, nameCollection), orderBy('datePost', 'desc'));
+  onSnapshot(q, (querySnapshot) => {
+    const posts = [];
+    querySnapshot.forEach((_doc) => {
+      posts.push({ ..._doc.data(), id: _doc.id });
+    });
+    callback(posts);
+  });
+};
