@@ -52,7 +52,7 @@
 }
 
 /*estilos botones register y login*/
-.Button-Registrer, .Button-Login {
+.Button-Registrer, .Button-Login, .btn-publicar {
   border-radius: 0.375rem;
   background: #0A527A;
   border: none;
@@ -168,25 +168,21 @@ nav{
   margin: 1rem;
 }
 
-.new-post{
-  width: auto;
-  height: 3rem;
-  display: flex;
-  flex-direction: row;
-  justify-content: flex-end;
-  margin: 1rem;
-}
-
 .btn-like{
   width: auto;
-  height:3rem;
+  height:2rem;
   display: flex;
   flex-direction: row;
+  justify-content: flex-start;
+  border: none;
+  background-color: transparent;
+  margin-left: 0;
 }
 
 .like-post{
   width: auto;
-  height: 3rem;
+  height: 2rem;
+  background-color: transparent;
 }
 
 .container-print-post{
@@ -205,81 +201,100 @@ nav{
   flex-direction: row;
 }
 
+/* textarea y button de publicar  */
 
-
-
-
-
-
-
-
-
-/* Modal */
-
-/* body, .containerModal {
-  width: 100%;
-  height: 100%;
+.text-post{
   display: flex;
+  flex-direction: column;
+  resize: none;
+  background-color: #95F2E7;
+  border: #1673A8;
+  border-color: #1673A8;
+  border-radius: 13px;
+  width: 20rem;
+  height: auto;
+  padding: 1rem;
+}
+
+/* botones de  editar y borrar */
+.btn-edit{
+  display: flex;
+  flex-direction: row;
+  border: none;
+  width: auto;
+  height: 2rem;
+  justify-content: flex-end;
+  background-color: transparent;
+}
+.edit-post{
+  width: auto;
+  height: 2rem;
+  background-color: transparent;
+}
+.btn-delete{
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-end;
+  border: none;
+  width: auto;
+  height: 2rem;
+  background-color: transparent;
+  
+}
+.delete-post{
+  width: auto;
+  height: 2rem;
+  background-color: transparent;
+}
+
+/* Publicaciones */
+
+.user-post{
+  display: flex;
+  flex-direction: column;
+  resize: none;
+  background-color: #95F2E7;
+  border: solid #1673A8 1px;
+  border-radius: 13px;
+  margin: 1rem;
+  width: 20rem;
+  height: auto;
+  padding: 1rem;
+}
+.user-post :hover{
+  box-shadow: #06486e;
+}
+.container-new-post{
+  border: solid #1673A8 2px;
+  border-radius: 13px;
+  padding: 1rem;
+  display: flex;
+  flex-direction: column;
   justify-content: center;
   align-items: center;
 }
-
-.containerModal {
-  position: fixed;
-	top: 0;
-	left: 0;
-	background: rgba(0,0,0,0.5);
-	transition: all 500ms ease;
-	opacity: 0;
-	visibility: hidden;
+.btn-publicar{
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
 }
-
-.lbl-modal:checked ~ .containerModal{
-	opacity: 1;
-	visibility: visible;
-} 
-
-.container-new-post{
-  width: 400px;
-	height: 300px;
-	margin: auto;
-	background: #fff;
-	box-shadow: 1px 7px 25px rgba(0,0,0,0.6);
-	transition: all 500ms ease;
-	position: relative;
-	transform: translateY(-30%);
+.user-names{
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
+  align-items: flex-start;
+  font-size: 1.25rem;
+  color: #06486e;
 }
-
-.lbl-modal:checked ~ .containerModal .container-new-post {
-	transform: translateY(0%);
-} 
-
-.close-modal {
-	position: absolute;
-	top: 10px;
-	right: 10px;
-	color: #fff;
-	font-size: 15px;
-	cursor: pointer;
+.buttons-editions{
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-end;
+  align-items: flex-end;
 }
-
-.text-post{
-	width: 100%;
-	padding: 10px; 
+.container-buttons{
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
 }
-
-.lbl-modal{
-  visibility: hidden;
-	display: none;
-}
-.close-modal{
-	background: #fff;
-	padding: 10px 15px;
-	border-radius: 4px;
-	cursor: pointer;
-}
-@media only screen and (min-width:320px) and (max-width:768px){
-	.contenedor{
-		width: 95%;
-	}
-} */

@@ -8,31 +8,33 @@ const callbackPost = (post) => {
     postUser.className = 'containerPost';
     const templatePrintPost1 = `
       <section class="container-print-post" id="containerPrintPost">
-        <div>${element.userName}</div>
+        <div class="user-names">${element.userName}</div>
         <div id="${element.id}">
-          <div>${element.userPost}</div>
+          <div class="user-post">${element.userPost}</div>
         </div>
         <div class="container-buttons">
           <div class="btn-like">
             <button class="btn-like" id="btnLike" value="${element.id}">
               <img src="img/star.png" alt="me gusta" class="like-post" id="likePost">
             </button>
-            <p class="counter-likes" id="counterLikes">${element.likesCounter}me gusta</p>
+            <p class="counter-likes" id="counterLikes">${element.likesCounter} Me gusta</p>
           </div>
     `;
     const templatePrintPost3 = `
         </div>
       </section>
     `;
-    let templatePrintPost2;
+    let templatePrintPost2 = '';
     if (element.userId === auth.currentUser.uid) {
       templatePrintPost2 = `
+     <div class="buttons-editions"
         <button class="btn-edit" id="btnEdit" value="${element.id}">
           <img src="img/pen.png" alt="editar post" class="edit-post" id="editPost">
         </button>
         <button class="btn-delete" id="btnDelete" value="${element.id}">
           <img src="img/trash.png" alt="eliminar post" class="delete-post" id="deletePost">
         </button>
+     </div>
       `;
     }
     postUser.innerHTML += templatePrintPost1 + templatePrintPost2 + templatePrintPost3;
