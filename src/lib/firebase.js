@@ -20,6 +20,8 @@ import {
   query,
   onSnapshot,
   orderBy,
+  doc,
+  deleteDoc,
 } from 'https://www.gstatic.com/firebasejs/9.2.0/firebase-firestore.js';
 // TODO: Add SDKs for Firebase products that you want to use
 // https://firebase.google.com/docs/web/setup#available-libraries
@@ -181,4 +183,12 @@ export const printPost = (nameCollection, callback) => {
     });
     callback(posts);
   });
+};
+
+// función para borrar
+export const deletePost = async (postId) => {
+  const confirmation = window.confirm('¿Seguro quieres eliminar tu post?');
+  if (confirmation) {
+    await deleteDoc(doc(db, 'post', postId));
+  }
 };

@@ -1,4 +1,4 @@
-import { auth, printPost } from '../lib/firebase.js';
+import { auth, printPost, deletePost } from '../lib/firebase.js';
 
 const callbackPost = (post) => {
   const containerPost = document.querySelector('#postContainer');
@@ -10,7 +10,7 @@ const callbackPost = (post) => {
       <section class="container-print-post" id="containerPrintPost">
         <div class="user-names">${element.userName}</div>
         <div id="${element.id}">
-          <div class="user-post">${element.userPost}</div>
+          <div class="user-post" id= "userPost">${element.userPost}</div>
         </div>
         <div class="container-buttons">
           <div class="btn-like">
@@ -41,6 +41,16 @@ const callbackPost = (post) => {
     containerPost.appendChild(postUser);
   };
   post.forEach(templatesPrintPost);
+
+  // botón de eliminar
+  const buttonDelete = document.querySelectorAll('#btnDelete');
+  buttonDelete.forEach((item) => {
+    item.addEventListener('click', () => {
+      console.log('holiholimundo');
+      deletePost(item.value);
+    });
+  });
+
   return containerPost;
 };
 
