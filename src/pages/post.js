@@ -1,10 +1,11 @@
 import { auth, printPost } from '../lib/firebase.js';
 
 const callbackPost = (post) => {
-  const containerPost = document.getElementById('postContainer');
+  const containerPost = document.querySelector('#postContainer');
   containerPost.innerHTML = '';
   const templatesPrintPost = (element) => {
     const postUser = document.createElement('div');
+    postUser.className = 'containerPost';
     const templatePrintPost1 = `
       <section class="container-print-post" id="containerPrintPost">
         <div>${element.userName}</div>
@@ -16,7 +17,7 @@ const callbackPost = (post) => {
             <button class="btn-like" id="btnLike" value="${element.id}">
               <img src="img/star.png" alt="me gusta" class="like-post" id="likePost">
             </button>
-            <p class="counte-likes" id="counterLikes">${element.likesCounter}me gusta</p>
+            <p class="counter-likes" id="counterLikes">${element.likesCounter}me gusta</p>
           </div>
     `;
     const templatePrintPost3 = `
@@ -24,7 +25,7 @@ const callbackPost = (post) => {
       </section>
     `;
     let templatePrintPost2;
-    if (element.userId === auth.user.uid) {
+    if (element.userId === auth.currentUser.uid) {
       templatePrintPost2 = `
         <button class="btn-edit" id="btnEdit" value="${element.id}">
           <img src="img/pen.png" alt="editar post" class="edit-post" id="editPost">
