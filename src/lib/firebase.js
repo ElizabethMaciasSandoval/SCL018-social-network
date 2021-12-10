@@ -22,6 +22,12 @@ import {
   orderBy,
   doc,
   deleteDoc,
+  //agregados
+  updateDoc,
+  getDoc,
+  arrayRemove,
+  arrayUnion
+  //aagregados
 } from 'https://www.gstatic.com/firebasejs/9.2.0/firebase-firestore.js';
 // TODO: Add SDKs for Firebase products that you want to use
 // https://firebase.google.com/docs/web/setup#available-libraries
@@ -190,5 +196,36 @@ export const deletePost = async (postId) => {
   const confirmation = window.confirm('¿Seguro quieres eliminar tu post?');
   if (confirmation) {
     await deleteDoc(doc(db, 'post', postId));
+  }
+};
+
+
+
+
+
+
+
+
+
+
+// Función para dar likes
+
+export const updateLikes = async (id) => {
+  const userIdentifier = auth.currentUser.uid;
+  const postRef = doc(db, 'post', id);
+  const docSnap = await getDoc(postRef);
+  const postData = docSnap.data();
+  const likesCount = postData.likesCounter;
+
+  if ((postData.likes).includes(userIdentifier)) {
+    await updateDoc(postRef, {
+      likes: arrayRemove(userIdentifier),
+      likesCounter: likesCount - 1,
+    });
+  } else {
+    await updateDoc(postRef, {
+      likes: arrayUnion(userIdentifier),
+      likesCounter: likesCount + 1,
+    });
   }
 };
