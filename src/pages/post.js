@@ -1,4 +1,4 @@
-import { auth, printPost, deletePost } from '../lib/firebase.js';
+import { auth, printPost, deletePost, updateLikes } from '../lib/firebase.js';
 
 const callbackPost = (post) => {
   const containerPost = document.querySelector('#postContainer');
@@ -48,6 +48,17 @@ const callbackPost = (post) => {
     item.addEventListener('click', () => {
       console.log('holiholimundo');
       deletePost(item.value);
+    });
+  });
+
+
+  // botón de dar likes
+  const likeBtn = containerPost.querySelectorAll('.btn-like');
+  likeBtn.forEach((btnL) => {
+    btnL.addEventListener('click', () => {
+      console.log('peofeo');
+      const postId = btnL.value;
+      updateLikes(postId);
     });
   });
 
