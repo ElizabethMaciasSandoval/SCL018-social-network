@@ -22,12 +22,10 @@ import {
   orderBy,
   doc,
   deleteDoc,
-  //agregados
   updateDoc,
   getDoc,
   arrayRemove,
   arrayUnion
-  //aagregados
 } from 'https://www.gstatic.com/firebasejs/9.2.0/firebase-firestore.js';
 // TODO: Add SDKs for Firebase products that you want to use
 // https://firebase.google.com/docs/web/setup#available-libraries
@@ -198,15 +196,6 @@ export const deletePost = async (postId) => {
     await deleteDoc(doc(db, 'post', postId));
   }
 };
-
-
-
-
-
-
-
-
-
 
 // Función para dar likes
 
