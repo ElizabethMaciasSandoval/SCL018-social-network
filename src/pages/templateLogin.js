@@ -3,7 +3,7 @@ import { login, googleLogin } from '../lib/firebase.js';
 export const drawLogin = () => {
   const draw = document.createElement('div');
   const templatePageLogin = `
-    <section>
+    <section class="allFirstPage">
       <section class = "containerWelcome">
       <section class = "firstPage">
         <img src="img/Logo-oficial_00.png" alt="logo" id="imgEtudiando" class="img-estudiando">

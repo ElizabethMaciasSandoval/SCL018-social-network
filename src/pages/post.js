@@ -27,10 +27,10 @@ const callbackPost = (post) => {
     let templatePrintPost2 = '';
     if (element.userId === auth.currentUser.uid) {
       templatePrintPost2 = `
-     <div class="buttons-editions"
+     <div class="buttons-editions">
         <button class="btn-edit" id="btnEdit" value="${element.id}">
           <img src="img/pen.png" alt="editar post" class="edit-post" id="editPost">
-        </button>
+        </button> 
         <button class="btn-delete" id="btnDelete" value="${element.id}">
           <img src="img/trash.png" alt="eliminar post" class="delete-post" id="deletePost">
         </button>
