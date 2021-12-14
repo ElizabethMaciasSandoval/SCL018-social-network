@@ -46,17 +46,14 @@ const callbackPost = (post) => {
   const buttonDelete = document.querySelectorAll('#btnDelete');
   buttonDelete.forEach((item) => {
     item.addEventListener('click', () => {
-      console.log('holiholimundo');
       deletePost(item.value);
     });
   });
-
 
   // botón de dar likes
   const likeBtn = containerPost.querySelectorAll('.btn-like');
   likeBtn.forEach((btnL) => {
     btnL.addEventListener('click', () => {
-      console.log('peofeo');
       const postId = btnL.value;
       updateLikes(postId);
     });
