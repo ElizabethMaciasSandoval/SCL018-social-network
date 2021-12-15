@@ -32,7 +32,7 @@ Una vez ya realizado alguno de esto pasos podras acceder al muro en donde encont
 ![](src/imagenes_del_readme/4.jpg)
 
 ## 4. Test de usabilidad 
-![](src/imagenes_del_readme/test-de-usabilidad.mp4)
+![](src/imagenes_del_readme/testDeUsabilidad.gif)
 
 ## 5. Enlace de la página
 https://sarariverosolmedo.github.io/SCL018-social-network/src
