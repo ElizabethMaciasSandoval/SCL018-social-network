@@ -26,10 +26,10 @@ Una vez ya realizado alguno de esto pasos podras acceder al muro en donde encont
 ![](src/imagenes_del_readme/protopo-HD1.PNG)
 
 ## 3. Historias de Usuarios
-![](src/imagenes_del_readme/1.jpg)
-![](src/imagenes_del_readme/2.jpg)
-![](src/imagenes_del_readme/3.jpg)
-![](src/imagenes_del_readme/4.jpg)
+<img src = src/imagenes_del_readme/1.jpg width = 300px>
+<img src = src/imagenes_del_readme/2.jpg width = 300px>
+<img src = src/imagenes_del_readme/3.jpg width = 300px>
+<img src = src/imagenes_del_readme/4.jpg width = 300px>
 
 ## 4. Test de usabilidad 
 ![](src/imagenes_del_readme/testDeUsabilidad.gif)
