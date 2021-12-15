@@ -113,12 +113,7 @@ width: auto;
 height: 4em;
 margin-top: 7rem;
 }
-/* .Title-Login {
-  font-family: CabinSketch-Regular;
-  color: #0077b6;
-  font-size: 3.3rem;
-  margin-top: 2rem;
-} */
+
  /* Página del Muro */
 .wall-container{
   display: flex;
@@ -212,7 +207,6 @@ nav{
 }
 
 /* textarea y button de publicar  */
-
 .text-post{
   display: flex;
   flex-direction: column;
@@ -223,7 +217,6 @@ nav{
   border-radius: 0.813rem;
   width: 20rem;
   height: auto;
-/*   padding: 1rem; */
 }
 
 /* botones de  editar y borrar */
@@ -258,7 +251,6 @@ nav{
 }
 
 /* Publicaciones */
-
 .user-post{
   display: flex;
   flex-direction: column;
@@ -313,29 +305,8 @@ nav{
 }
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 /* Medium devices (tablets, 768px and up)*/
 @media (min-width: 768px) { 
-
 .headerNav{
   display: flex;
   justify-content: center;
@@ -344,40 +315,11 @@ nav{
 .text-post{
   width: 40rem;
   height: auto;
-/*   padding: 1rem; */
 }
 }
-
-
-
-
-
-
-
-
-
-
-
-
 
 /* Large devices (desktops, 992px and up)*/
 @media (min-width: 992px) { 
-
-/* .allFirstPage{
-  display: flex;
-  justify-content: space-around;
-  margin-top: 5rem;
-}
-
-.logoIniciaSesion{
-  margin-top: 0rem;
-}
-
-.containerWelcome{
-  width: 50vw;
-}
-*/
-
 .fas {
 display: none;
 } 
@@ -391,11 +333,4 @@ display: none;
 .logoIniciaSesion{
   margin-top: 0rem;
 }
-
-
-
-
-
-
-
 }

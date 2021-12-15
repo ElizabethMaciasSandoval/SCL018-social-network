@@ -15,14 +15,12 @@ export const drawSignUp = () => {
   `;
   draw.innerHTML = templatePageSignUp;
 
+  // Botón que genera el evento para ejecutar la función que crea usuarios
   const buttonSignUp = draw.querySelector('#buttonSignUp');
   buttonSignUp.addEventListener('click', () => {
     const name = draw.querySelector('#signName').value;
     const email = draw.querySelector('#signMail').value;
     const password = draw.querySelector('#signPassword').value;
-    console.log(name);
-    console.log(email);
-    console.log(password);
     if (name === '' || email === '' || password === '') {
       alert('Por favor completa todos los campos');
     } else if (password.length < 6) {

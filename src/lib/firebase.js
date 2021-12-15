@@ -25,7 +25,7 @@ import {
   updateDoc,
   getDoc,
   arrayRemove,
-  arrayUnion
+  arrayUnion,
 } from 'https://www.gstatic.com/firebasejs/9.2.0/firebase-firestore.js';
 // TODO: Add SDKs for Firebase products that you want to use
 // https://firebase.google.com/docs/web/setup#available-libraries
@@ -48,7 +48,7 @@ export const auth = getAuth(app);
 const provider = new GoogleAuthProvider();
 const db = getFirestore(app);
 
-// funcion que crea la colecion de los usuarios
+// función que crea la coleción de los usuarios
 export const userData = async (idUser, nameUser) => {
   try {
     const docRef = await addDoc(collection(db, 'user-data'), {
@@ -61,7 +61,7 @@ export const userData = async (idUser, nameUser) => {
   }
 };
 
-// funcion que registra usuarios
+// función que registra usuarios
 export const signup = (email, password, name) => {
   createUserWithEmailAndPassword(auth, email, password)
     .then((userCredential) => {
@@ -83,7 +83,7 @@ export const signup = (email, password, name) => {
     });
 };
 
-// funcion que loguea usuarios con una cuenta registrada
+// función que loguea usuarios con una cuenta registrada
 export const login = (email, password) => {
   if (email === '' || password === '') {
     alert('Email o contraseña no ingresados');
@@ -103,7 +103,7 @@ export const login = (email, password) => {
   }
 };
 
-// funcion que loguea usuarios con cuenta de google
+// función que loguea usuarios con cuenta de google
 export const googleLogin = () => {
   signInWithPopup(auth, provider)
     .then((result) => {
@@ -114,9 +114,6 @@ export const googleLogin = () => {
       const user = result.user;
       window.location.hash = '#/wall';
       // ...
-    })
-    .catch((error) => {
-      // Handle Errors here.
     }).catch((error) => {
     // Handle Errors here.
       const errorCode = error.code;
@@ -129,7 +126,7 @@ export const googleLogin = () => {
     });
 };
 
-// Singout (Cierre sesión)
+// función Singout (Cierre sesión)
 export const signOutUser = () => {
   signOut(auth)
     .then(() => {
@@ -138,12 +135,11 @@ export const signOutUser = () => {
     })
     .catch((error) => {
       // An error happened.
-      console.log('Se taimó');
       // Sign-out successful.
     });
 };
 
-// funcion observador
+// función observador
 export const onAuth = () => {
   onAuthStateChanged(auth, (user) => {
     if (user) {
@@ -160,7 +156,7 @@ export const onAuth = () => {
   });
 };
 
-// funcion para crear coleccion de post
+// función para crear coleccion de post
 export const addDataPost = async (textPost) => {
   try {
     const docRef = await addDoc(collection(db, 'post'), {
@@ -177,7 +173,7 @@ export const addDataPost = async (textPost) => {
   }
 };
 
-// funcion para publicar el post en pantalla
+// función para publicar el post en pantalla
 export const printPost = (nameCollection, callback) => {
   const q = query(collection(db, nameCollection), orderBy('datePost', 'desc'));
   onSnapshot(q, (querySnapshot) => {

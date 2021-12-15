@@ -29,18 +29,17 @@ export const drawLogin = () => {
   `;
   draw.innerHTML = templatePageLogin;
 
+  // Botón que genera el evento para ejecutar la función que logueo
   const buttonLogin = draw.querySelector('#loginButton');
   buttonLogin.addEventListener('click', () => {
     const email = draw.querySelector('#loginMail').value;
     const password = draw.querySelector('#loginPassword').value;
-    console.log(email);
-    console.log(password);
     login(email, password);
   });
 
+  // Botón que genera el evento para ejecutar la función que logueo con google
   const googleButton = draw.querySelector('#logoGoogle');
   googleButton.addEventListener('click', () => {
-    console.log('Holiwi');
     googleLogin();
   });
   return draw;
